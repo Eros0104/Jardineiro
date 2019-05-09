@@ -1,24 +1,43 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Header } from './components/header/Header';
+import { Container, Row, Col } from 'reactstrap';
+import { CardStats } from './components/card/CardStats';
+import { Pie } from './components/charts/Pie';
+import { Spinner } from 'reactstrap';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Container className="mt-2">
+        <Row>
+          <Col lg="6">
+            <CardStats title="Planta 1">
+              <Pie/>
+            </CardStats>
+          </Col>
+          <Col lg="6">
+            <CardStats title="Planta 2">
+              <Pie/>        
+            </CardStats>
+          </Col>
+          <Col lg="6">
+            <CardStats title="Planta 3">
+              <Pie/>
+            </CardStats>
+          </Col>
+          <Col lg="6">
+            <CardStats title="Planta 3">
+              <Spinner color="success" />
+            </CardStats>
+          </Col> 
+        </Row>  
+      </Container> 
+
+
     </div>
   );
 }
