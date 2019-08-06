@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { CardStats } from './components/card/CardStats';
 import { Pie } from './components/charts/Pie';
 import { Spinner } from 'reactstrap';
+import { Link, Router } from 'react-router-dom'
 
 
 function App() {
