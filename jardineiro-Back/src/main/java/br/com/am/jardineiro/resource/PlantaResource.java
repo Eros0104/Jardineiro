@@ -16,6 +16,8 @@ public class PlantaResource {
     private SeedRepository repository;
 
 
+    /*CRUD SEED*/
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Seed cadastrar(@RequestBody Seed seed){
@@ -24,14 +26,10 @@ public class PlantaResource {
 
     @GetMapping("{codigo}")
     public Seed buscar(@PathVariable int codigo){
+
     return repository.findById(codigo).get();
     }
 
- /* @GetMapping("{nome}")
-    public List<Seed> buscarPorNome(@PathVariable String nome){
-        return repository.findByNome(nome);
-    }
-*/
     @GetMapping
     public List<Seed> listar(){
         return repository.findAll();
@@ -51,6 +49,4 @@ public class PlantaResource {
          repository.deleteById(codigo);
 
     }
-
-    /*CRUD*/
 }

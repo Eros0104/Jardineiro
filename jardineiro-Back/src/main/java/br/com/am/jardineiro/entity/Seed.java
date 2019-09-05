@@ -14,8 +14,7 @@ public class Seed{
     // @Column(name="NM_PLANTA")
     private String nome;
 
-   // private Classificacao classificacao; gimnospermas(planta),angiospermas(flor)
-
+    private boolean frutifera;
     //@Enumerated(EnumType.STRING)
     //@Column(name = "DS_SEXO")
     private Genero sexo;
@@ -53,5 +52,13 @@ public class Seed{
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean isFrutifera() {
+        return frutifera;
+    }
+
+    public void setFrutifera(boolean frutifera) {
+        this.frutifera = frutifera;
     }
 }
