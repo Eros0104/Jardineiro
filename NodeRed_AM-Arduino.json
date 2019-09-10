@@ -1,0 +1,1 @@
+[{"id":"da9c5fb6.035cf","type":"change","z":"60d0c8b4.4590e8","name":"umidade","rules":[{"t":"set","p":"payload","pt":"msg","to":"umidade","tot":"flow"}],"action":"","property":"","from":"","to":"","reg":false,"x":380,"y":460,"wires":[["d76d588d.25b9a8"]]}]
