@@ -6,39 +6,40 @@ import { Container, Row, Col } from 'reactstrap';
 import { CardStats } from './components/card/CardStats';
 import { Pie } from './components/charts/Pie';
 import { Spinner } from 'reactstrap';
-import { Link, Router } from 'react-router-dom'
+import { Sidebar } from './components/sidebar/Sidebar';
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Container className="mt-2">
-        <Row>
-          <Col lg="6">
-            <CardStats title="Planta 1">
-              <Pie/>
-            </CardStats>
-          </Col>
-          <Col lg="6">
-            <CardStats title="Planta 2">
-              <Pie/>        
-            </CardStats>
-          </Col>
-          <Col lg="6">
-            <CardStats title="Planta 3">
-              <Pie/>
-            </CardStats>
-          </Col>
-          <Col lg="6">
-            <CardStats title="Planta 3">
-              <Spinner color="success" />
-            </CardStats>
-          </Col> 
-        </Row>  
-      </Container> 
-
-
+      <Sidebar isOpen={true} pageWrapId={"page-wrap"} />
+      <div id={"page-wrap"}>
+        <Header />
+        <Container className="mt-2">
+          <Row>
+            <Col lg="6">
+              <CardStats title="Planta 1">
+                <Pie />
+              </CardStats>
+            </Col>
+            <Col lg="6">
+              <CardStats title="Planta 2">
+                <Pie />
+              </CardStats>
+            </Col>
+            <Col lg="6">
+              <CardStats title="Planta 3">
+                <Pie />
+              </CardStats>
+            </Col>
+            <Col lg="6">
+              <CardStats title="Planta 3">
+                <Spinner color="success" />
+              </CardStats>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
