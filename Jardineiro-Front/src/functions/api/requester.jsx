@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const baseUrl = "http://localhost:8080"
+
 const get = () => {
-    let response = await axios.get('http://localhost:8080/Seed', config)
+    let response = await axios.get(baseUrl + '/Seed', config)
         .then(response => {
             console.log(response.data);
         })
