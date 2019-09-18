@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { CustomButton } from '../components/inputs/CustomButton';
 import { CustomModal } from '../components/modal/CustomModal'
-import axios from 'axios';
+import { get } from '../functions/functions.jsx'
 
 class PlantasConsultar extends Component {
     constructor(props) {
@@ -11,23 +11,12 @@ class PlantasConsultar extends Component {
     }
 
     consultar = async () => {
-        let config = {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
-        let list = await axios.get('http://localhost:8080/Seed', config)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        console.log(list)
+
+        get('/Seed');
     }
     insert() {
-        axios.post('http://localhost:8080/Seed', { nome: 'Weed' })
-            .then(response => console.log(response));
+        /*axios.post('http://localhost:8080/Seed', { nome: 'Weed' })
+            .then(response => console.log(response));*/
     }
 
     toggleModal = () => {

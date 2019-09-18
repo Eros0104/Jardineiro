@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import { Header } from './components/header/Header';
 import { Container, Row, Col } from 'reactstrap';
 import { CardStats } from './components/card/CardStats';
