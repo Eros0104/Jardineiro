@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Card, Button, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 
 export class CardStats extends Component {
   render() {
     return (
-      <Card>
+      <Card className="shadow-sm">
         <CardHeader>{this.props.title}</CardHeader>
         <CardBody>
           <div>

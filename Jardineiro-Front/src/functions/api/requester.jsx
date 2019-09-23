@@ -1,23 +1,47 @@
 import axios from 'axios';
-import { error } from '../functions.jsx'
-import toastr from 'toastr'
+import { error, success } from '../functions.jsx'
 
 const baseUrl = "http://localhost:8080"
 
-const get = async (url, data = "") => {
-    error('teste')
-    let response = await axios.get(baseUrl + url + data)
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-            //error('ô caralho')
-            toastr.error('msg', 'Erro!')
-            console.log(error.response);
+const get = async (uri, data = "") => {
+    let resp = await axios.get(baseUrl + uri + data)
+        .catch(resp => {
+            error(resp.response.status + " - " + resp.response.data.error)
         });
-    error('o caralho')
-    toastr.error('msg', 'Erro!')
-    return response
+    return resp
 }
 
-export { get }
+const post = async (uri, data) => {
+    let resp = axios.post(baseUrl + uri, data)
+        .then(response => {
+            success('Salvo com sucesso!')
+        })
+        .catch(resp => {
+            error(resp.response.status + " - " + resp.response.data.error)
+        });
+    return resp;
+}
+
+const put = async (uri, data) => {
+    let resp = axios.put(baseUrl + uri, data)
+        .then(response => {
+            success('Salvo com sucesso!')
+        })
+        .catch(resp => {
+            error(resp.response.status + " - " + resp.response.data.error)
+        });
+    return resp
+}
+
+const remove = async (uri) => {
+    let resp = axios.delete(baseUrl + uri)
+        .then(response => {
+            success('Deletado com sucesso!')
+        })
+        .catch(resp => {
+            error(resp.response.status + " - " + resp.response.data.error)
+        });
+    return resp
+}
+
+export { get, post, put, remove }

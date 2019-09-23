@@ -1,7 +1,15 @@
-import toastr from 'toastr'
+import {  toast } from 'react-toastify';
 
 const error = (msg) => {
-    toastr.error(msg, 'Erro!')
+    toast.error(msg);
 }
 
-export { error }
+const success = (msg) => {
+    toast.success(msg)
+}
+
+const warning = (msg) => {
+
+}
+
+export { error, success, warning }

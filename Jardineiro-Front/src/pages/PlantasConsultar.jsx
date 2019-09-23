@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { CustomButton } from '../components/inputs/CustomButton';
 import { CustomModal } from '../components/modal/CustomModal'
-import { get } from '../functions/functions.jsx'
+import { get, post } from '../functions/functions.jsx'
 
 class PlantasConsultar extends Component {
     constructor(props) {
@@ -12,11 +12,10 @@ class PlantasConsultar extends Component {
 
     consultar = async () => {
 
-        get('/Seed');
+        console.log(await get('/Seed'))
     }
     insert() {
-        /*axios.post('http://localhost:8080/Seed', { nome: 'Weed' })
-            .then(response => console.log(response));*/
+        post('/Seed', { nome: "Weed" })
     }
 
     toggleModal = () => {
@@ -30,7 +29,6 @@ class PlantasConsultar extends Component {
                 Plantas Consultar
                 <CustomModal isOpen={this.state.isModalOpen} toggle={() => this.toggleModal()} title="Nova Planta">
                     <CustomButton label="Criar Nova Planta" icon="" onClick={() => this.insert()} />
-
                 </CustomModal>
             </div>
         )
