@@ -1,4 +1,56 @@
 package br.com.am.jardineiro.controller;
 
+import br.com.am.jardineiro.entity.Seed;
+import br.com.am.jardineiro.repository.SeedRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("Seed")
 public class PlantaController {
+
+    @Autowired
+    private SeedRepository repository;
+
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public Seed cadastrar(@RequestBody Seed seed){
+        return repository.save(seed);
+    }
+
+    @GetMapping("{codigo}")
+    public Seed buscar(@PathVariable int codigo){
+    return repository.findById(codigo).get();
+    }
+
+ /* @GetMapping("{nome}")
+    public List<Seed> buscarPorNome(@PathVariable String nome){
+        return repository.findByNome(nome);
+    }
+*/
+    @GetMapping
+    public List<Seed> listar(){
+        return repository.findAll();
+    }
+
+    @PutMapping("{id}")
+    public Seed atualizar(@RequestBody Seed seed, @PathVariable int id){
+
+        seed.setCodigo(id);
+
+        return repository.save(seed);
+    }
+
+
+    @DeleteMapping("{codigo}")
+    public void deletar(@PathVariable int codigo){
+         repository.deleteById(codigo);
+
+    }
+
+    /*CRUD*/
 }
