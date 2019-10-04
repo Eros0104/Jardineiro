@@ -1,6 +1,8 @@
 package br.com.am.jardineiro.entity;
 
 
+import br.com.am.jardineiro.table.Coluna;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +25,7 @@ public class Seed{
     //@Column(name="DS_PLANTA")
     private String descricao;
 
+    @Coluna(position = 0)
     public int getCodigo() {
         return codigo;
     }
@@ -31,6 +34,7 @@ public class Seed{
         this.codigo = codigo;
     }
 
+    @Coluna(position = 1)
     public String getNome() {
         return nome;
     }
@@ -39,6 +43,7 @@ public class Seed{
         this.nome = nome;
     }
 
+    @Coluna(position = 2)
     public Genero getSexo() {
         return sexo;
     }

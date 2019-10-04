@@ -11,7 +11,6 @@ class PlantasConsultar extends Component {
     }
 
     consultar = async () => {
-
         console.log(await get('/Seed'))
     }
 
@@ -22,9 +21,8 @@ class PlantasConsultar extends Component {
     render() {
         return (
             <div>
-                <CustomButton label="Consultar" icon="" onClick={() => this.consultar()} />
-                <CustomButton label="Criar Nova Planta" icon="" onClick={() => this.toggleModal()} />
-                Plantas Consultar
+                <CustomButton icon="" onClick={() => this.consultar()} >Consultar</CustomButton>
+                <CustomButton icon="" onClick={() => this.toggleModal()} >Criar Nova Planta</CustomButton>
                 <PlantCreateModal isOpen={this.state.isModalOpen} toggle={() => this.toggleModal()} />
             </div>
         )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import { Input } from 'reactstrap';
 
 export class TextInput extends Component {
     render() {
@@ -7,7 +7,7 @@ export class TextInput extends Component {
         return (
             <div>
                 <label>{label}</label><br/>                
-                <Input placeholder={placeholder} />
+                <Input {...this.props} placeholder={placeholder} />
             </div>
         )
     }

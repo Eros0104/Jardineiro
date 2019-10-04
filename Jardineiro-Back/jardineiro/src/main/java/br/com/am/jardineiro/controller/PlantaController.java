@@ -11,46 +11,38 @@ import java.util.List;
 @RestController
 @RequestMapping("Seed")
 public class PlantaController {
-
     @Autowired
     private SeedRepository repository;
 
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Seed cadastrar(@RequestBody Seed seed){
+    public Seed cadastrar(@RequestBody Seed seed) {
         return repository.save(seed);
     }
 
     @GetMapping("{codigo}")
-    public Seed buscar(@PathVariable int codigo){
-    return repository.findById(codigo).get();
+    public Seed buscar(@PathVariable int codigo) {
+        return repository.findById(codigo).get();
     }
 
- /* @GetMapping("{nome}")
-    public List<Seed> buscarPorNome(@PathVariable String nome){
-        return repository.findByNome(nome);
+    @GetMapping("model")
+    public Seed getModel() {
+        return new Seed();
     }
-*/
+
     @GetMapping
-    public List<Seed> listar(){
+    public List<Seed> listar() {
         return repository.findAll();
     }
 
     @PutMapping("{id}")
-    public Seed atualizar(@RequestBody Seed seed, @PathVariable int id){
-
+    public Seed atualizar(@RequestBody Seed seed, @PathVariable int id) {
         seed.setCodigo(id);
-
         return repository.save(seed);
     }
 
-
     @DeleteMapping("{codigo}")
-    public void deletar(@PathVariable int codigo){
-         repository.deleteById(codigo);
-
+    public void deletar(@PathVariable int codigo) {
+        repository.deleteById(codigo);
     }
-
-    /*CRUD*/
 }

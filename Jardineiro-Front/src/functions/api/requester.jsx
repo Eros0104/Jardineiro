@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { error, success } from '../functions.jsx'
 
-const baseUrl = "http://localhost:8080"
+const baseUrl = "http://localhost:8080/"
 
 const get = async (uri, data = "") => {
     let resp = await axios.get(baseUrl + uri + data)
