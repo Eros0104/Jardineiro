@@ -2,10 +2,13 @@ package br.com.am.jardineiro.controller;
 
 import br.com.am.jardineiro.entity.Seed;
 import br.com.am.jardineiro.repository.SeedRepository;
+import br.com.am.jardineiro.table.JardineiroTable;
+import br.com.am.jardineiro.table.TableFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,6 +36,11 @@ public class PlantaController {
     @GetMapping
     public List<Seed> listar() {
         return repository.findAll();
+    }
+
+    @GetMapping("table")
+    public JardineiroTable<Seed> table(){
+        return TableFunctions.toJardineiroTable(listar());
     }
 
     @PutMapping("{id}")

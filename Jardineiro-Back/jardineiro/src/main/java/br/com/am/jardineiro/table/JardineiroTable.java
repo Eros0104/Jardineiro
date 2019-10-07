@@ -3,18 +3,17 @@ package br.com.am.jardineiro.table;
 import java.util.List;
 
 public class JardineiroTable<T> {
-    private List<Coluna> listHeader;
+    private List<ColumnTable> listHeader;
     private List<T> listData;
 
-    public JardineiroTable(List<Coluna> listHeader) {
-        this.listHeader = listHeader;
+    public JardineiroTable() {
     }
 
-    public List<Coluna> getListHeader() {
+    public List<ColumnTable> getListHeader() {
         return listHeader;
     }
 
-    public void setListHeader(List<Coluna> listHeader) {
+    public void setListHeader(List<ColumnTable> listHeader) {
         this.listHeader = listHeader;
     }
 
