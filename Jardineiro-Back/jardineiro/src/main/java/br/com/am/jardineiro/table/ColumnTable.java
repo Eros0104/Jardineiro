@@ -7,11 +7,17 @@ public class ColumnTable {
     private String value;
     @JsonProperty("headerName")
     private String name;
+    private boolean sortable;
 
-    public ColumnTable(String value, String name) {
+    public ColumnTable(String value, String name, boolean sortable) {
         this.value = value;
         this.name = name;
+        this.sortable = sortable;
     }
+
+    public boolean isSortable() { return sortable; }
+
+    public void setSortable(boolean sortable) { this.sortable = sortable; }
 
     public String getValue() {
         return value;

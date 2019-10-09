@@ -4,17 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import PlantasConsultar from "./pages/PlantasConsultar"
+import Home from "./pages/Home"
 import './assets/main.scss'
 
 const routing = (
-    <Router>
-        <div>
-            <Route path="/" component={App} />
-            <Route path="/PlantasConsultar" component={PlantasConsultar} />
-        </div>
-    </Router>
+	<Router>
+		<Switch>
+			<App>
+				<Route path="/" exact component={Home} />
+				<Route path="/plantas-consultar" component={PlantasConsultar} />
+			</App>
+		</Switch>
+	</Router>
 )
 
 ReactDOM.render(routing, document.getElementById('root'));

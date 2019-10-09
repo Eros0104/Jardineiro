@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react';
 import { get } from '../../functions/functions'
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 export class Table extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export class Table extends Component {
   }
 
   componentDidMount = async () => {
-    let list = await get("Seed/table");
+    let list = await get(this.props.dataUrl);
     list = list.data
     this.setState({ list })
   }
@@ -25,10 +25,10 @@ export class Table extends Component {
     let { list } = this.state;
     return (
       <div
-        className="ag-theme-balham"
+        className="ag-theme-material"
         style={{
           height: '500px',
-          width: '600px'
+          width: '100%'
         }}
       >
         <AgGridReact

@@ -10,7 +10,15 @@ public class TableFunctions {
         List<ColumnTable> header = new ArrayList<ColumnTable>();
         for(T item : list){
             for(Field field : item.getClass().getDeclaredFields())
-           header.add(new ColumnTable(field.getName(),field.getName()));
+                if (field.isAnnotationPresent(Coluna.class)) {
+                    Coluna annotation = field.getAnnotation(Coluna.class);
+                    header.add(new ColumnTable(
+                            field.getName(),
+                            annotation.name(),
+                            annotation.sortable()
+                            ));
+                }
+            break;
         }
         table.setListHeader(header);
         table.setListData(list);

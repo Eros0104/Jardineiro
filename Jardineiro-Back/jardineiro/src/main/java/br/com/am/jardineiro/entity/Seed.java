@@ -11,21 +11,18 @@ public class Seed{
 
     @Id
     @GeneratedValue(generator = "seed", strategy = GenerationType.SEQUENCE)
+    @Coluna(name = "Cod.", sortable = true)
     private int codigo;
 
-    // @Column(name="NM_PLANTA")
+    @Coluna(name = "Nome", sortable = true)
     private String nome;
 
-   // private Classificacao classificacao; gimnospermas(planta),angiospermas(flor)
-
-    //@Enumerated(EnumType.STRING)
-    //@Column(name = "DS_SEXO")
+    @Coluna(name = "Sexo")
     private Genero sexo;
 
     //@Column(name="DS_PLANTA")
     private String descricao;
 
-    @Coluna(position = 0)
     public int getCodigo() {
         return codigo;
     }
@@ -34,16 +31,12 @@ public class Seed{
         this.codigo = codigo;
     }
 
-    @Coluna(position = 1)
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() { return nome; }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Coluna(position = 2)
     public Genero getSexo() {
         return sexo;
     }
