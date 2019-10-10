@@ -34,8 +34,9 @@ export default class Home extends Component {
             )
           }
           <Col md={6}>
-            <div className="m-auto">
-              <i className="fas fa-plus-square"></i>
+            <div className="w-100 h-100 bg-light border rounded shadow-sm text-center">
+              <i style={{color: "lightgrey", fontSize: "300px"}} 
+              className="fas fa-plus"></i>
             </div>
           </Col>
         </Row>

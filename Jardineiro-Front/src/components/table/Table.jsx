@@ -17,7 +17,7 @@ export class Table extends Component {
 
   componentDidMount = async () => {
     let list = await get(this.props.dataUrl);
-    list = list.data
+    list = list
     this.setState({ list })
   }
 

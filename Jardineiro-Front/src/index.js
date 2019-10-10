@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+import "@fortawesome/fontawesome-free/css/all.css"
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import PlantasConsultar from "./pages/PlantasConsultar"
 import Home from "./pages/Home"
-import './assets/main.scss'
 
 const routing = (
 	<Router>
