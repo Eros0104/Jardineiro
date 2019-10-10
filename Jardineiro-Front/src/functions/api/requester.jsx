@@ -8,7 +8,7 @@ const get = async (uri, data = "") => {
         .catch(resp => {
             error(resp.response.status + " - " + resp.response.data.error)
         });
-    return resp
+    return resp.data
 }
 
 const post = async (uri, data) => {
@@ -19,7 +19,7 @@ const post = async (uri, data) => {
         .catch(resp => {
             error(resp.response.status + " - " + resp.response.data.error)
         });
-    return resp;
+    return resp.data;
 }
 
 const put = async (uri, data) => {
@@ -30,7 +30,7 @@ const put = async (uri, data) => {
         .catch(resp => {
             error(resp.response.status + " - " + resp.response.data.error)
         });
-    return resp
+    return resp.data
 }
 
 const remove = async (uri) => {
@@ -41,7 +41,7 @@ const remove = async (uri) => {
         .catch(resp => {
             error(resp.response.status + " - " + resp.response.data.error)
         });
-    return resp
+    return resp.data
 }
 
 export { get, post, put, remove }
