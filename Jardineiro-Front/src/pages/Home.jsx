@@ -43,12 +43,15 @@ export default class Home extends Component {
               </Col>
             )
           }
-          <Col md={6}>
-            <div className="w-100 h-100 bg-light border rounded shadow-sm text-center">
-              <Undraw name="empty" primaryColor="#28a745" />
-            </div>
-          </Col>
         </Row>
+        <div className="text-center mx-auto">
+          <br/>
+          <h3>Parece que ainda não temos nada por aqui!</h3>
+          <br/>
+          <Undraw height="500px" name="empty" primaryColor="#28a745" />
+          <br/>
+          <Button className="w-75" color="primary"> Começar! </Button>
+        </div>
       </div>
     )
   }

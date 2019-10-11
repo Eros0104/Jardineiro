@@ -32,7 +32,7 @@ class App extends React.Component {
           <div id={"page-wrap"}>
             <Header expandMenu={this.toggleMenu} />
             <br />
-            <Container fluid>
+            <Container>
               {this.props.children}
             </Container>
           </div>
