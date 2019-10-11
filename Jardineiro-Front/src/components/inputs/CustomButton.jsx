@@ -3,8 +3,13 @@ import { Button } from "reactstrap"
 
 export class CustomButton extends Component {
     render() {
+        let { size, color } = this.props;
         return (
-            <Button {...this.props} color="success">{this.props.children}</Button>
+            <Button {...this.props}
+                size={size ? size : "sm"}
+                color={color ? color : "primary"}>
+                {this.props.children}
+            </Button>
         )
     }
 }

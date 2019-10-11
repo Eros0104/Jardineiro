@@ -15,3 +15,11 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+  .btn-burger{
+    cursor: pointer;
+    background-color: $primary;
+    transition: 0.3s;
+  }
+  .btn-burger:hover{
+    background-color: $dark-primary;
+  }

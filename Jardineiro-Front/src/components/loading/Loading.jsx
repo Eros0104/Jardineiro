@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
-import { PacmanLoader } from 'react-spinners';
+import {
+  RingLoader
+} from 'react-spinners';
+import variables from "../../assets/styles/scss/bootstrap/_variables.scss"
+
+const override = {
+  margin: "0 auto",
+  marginTop: "100px"
+}
 
 export class Loading extends Component {
   render() {
     return (
-      <div>
-        <PacmanLoader
-          sizeUnit={"px"}
-          size={25}
-          color={'green'}
-          loading={true}
-        />
-      </div>
+      <RingLoader
+        sizeUnit={"px"}
+        css={override}
+        size={this.props.size}
+        color={variables.primary}
+        loading={true}
+      />
+
     )
   }
 }

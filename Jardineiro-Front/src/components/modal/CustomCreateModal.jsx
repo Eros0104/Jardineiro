@@ -3,15 +3,19 @@ import { CustomModal } from './CustomModal'
 import { CustomButton } from '../../components/inputs/CustomButton'
 
 export class CustomCreateModal extends Component {
+  save = async () =>{
+    this.props.onSave();
+    this.props.toggle();
+  }
   render() {
-    let { children, isLoading, onSave } = this.props
+    let { children, isLoading } = this.props
     return (
       <form>
         <CustomModal
           {...this.props}
           isLoading={this.props.isLoading}
           footer={
-            <CustomButton disabled={isLoading} color="success" onClick={() => onSave()}>
+            <CustomButton disabled={isLoading} color="success" onClick={() => this.save()}>
               Salvar
             </CustomButton>
           }

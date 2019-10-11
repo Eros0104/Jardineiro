@@ -1,16 +1,13 @@
 /* Position and sizing of burger button */
+
+
 .bm-burger-button {
     position: fixed;
     width: 36px;
     height: 30px;
     left: 36px;
     top: 36px;
-  }
-  
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
-    background: #373a47;
-  }
+  } 
   
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
@@ -58,10 +55,10 @@
   /* Individual item */
   .bm-item {
     display: inline-block;
+    color: $light;
   }
   
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
   }
-  

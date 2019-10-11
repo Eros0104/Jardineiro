@@ -22,9 +22,16 @@ $teal:    #20c997;
 $cyan:    #17a2b8;
 
 $primary:       $green;
+$dark-primary:  darken($primary, 20%);
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-800;
+
+:export {
+    primary: $primary;
+    darkPrimary: $dark-primary;
+    info: $info;
+  }
