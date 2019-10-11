@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import Headroom from "react-headroom"
+import { Row, Col } from "reactstrap"
 
 export class Header extends Component {
 	render() {
 		return (
 			<Headroom>
-				<nav
-					class="navbar navbar-light bg-light text-left shadow-sm"
-					>
-					<div onClick={() => this.props.expandMenu()}>
-						<i className="fas fa-bars h3"></i>
-					</div>
-					<a class="navbar-brand" href="#">
-						<img src="folhinha.svg" width="30" height="30" alt="nao carregou" />
-					</a>
-				</nav>
+				<div className="bg-primary text-light text-left shadow-sm">
+					<Row>
+						<Col>
+							<div className="btn-burger" onClick={() => this.props.expandMenu()} className>
+								<i className="fas fa-bars h3"></i>
+							</div>
+						</Col>
+						<Col>
+							<img src="folhinha.svg" width="30" height="30" alt="nao carregou" />
+						</Col>
+					</Row>
+				</div>
 			</Headroom>
 		)
 	}

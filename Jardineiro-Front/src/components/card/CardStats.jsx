@@ -5,7 +5,7 @@ export class CardStats extends Component {
   render() {
     return (
       <Card className="shadow-sm">
-        <CardHeader>{this.props.title}</CardHeader>
+        <CardHeader>{this.props.header}</CardHeader>
         <CardBody>
           <div>
             {this.props.children}
