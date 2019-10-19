@@ -29,20 +29,21 @@ export class Table extends Component {
   render() {
     let { list } = this.state;
     return (
-      <div
-        className="ag-theme-material"
-        style={{
-          height: '500px',
-          width: '100%'
-        }}
-      >
+      <div>
         <CustomButton onClick={() => this.refresh()}>
           <i className="fas fa-sync-alt"></i>
         </CustomButton>
-        <AgGridReact
-          columnDefs={list.listHeader}
-          rowData={list.listData}>
-        </AgGridReact>
+        <div
+          className="ag-theme-material rounded border"
+          style={{
+            height: '500px',
+            width: '100%'
+          }}>
+          <AgGridReact
+            columnDefs={list.listHeader}
+            rowData={list.listData}>
+          </AgGridReact>
+        </div>
       </div>
     );
   }

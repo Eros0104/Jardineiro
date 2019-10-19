@@ -9,6 +9,8 @@ import { Loading } from '../components/loading/Loading'
 import variables from "../assets/styles/scss/bootstrap/_variables.scss"
 import { Link } from 'react-router-dom'
 import { CustomButton } from "../components/inputs/CustomButton"
+import { Temperatura } from "../components/board/Temperatura"
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -50,7 +52,7 @@ export default class Home extends Component {
           <Row>
             {
               plants.map((o) =>
-                <Col md={6}>
+                <Col md={12}>
                   <CardStats header={
                     <Row>
                       <Col>
@@ -64,7 +66,18 @@ export default class Home extends Component {
                       </Col>
                     </Row>
                   }>
-                    <LineChart />
+                    <Row>
+                      <Col md={6}>
+                        <CardStats header={"Temperatura"}>
+                          <Temperatura />
+                        </CardStats>
+                      </Col>
+                      <Col md={6}>
+                        <CardStats header={"Umidade"}>
+                          <LineChart />
+                        </CardStats>
+                      </Col>
+                    </Row>
                   </CardStats>
                 </Col>
               )
@@ -96,9 +109,7 @@ export default class Home extends Component {
             <br />
             <br />
             <br />
-            <Link to="/plantas-consultar">
-              <CustomButton className="w-75" size="md" color="primary"> Começar! </CustomButton>
-            </Link>
+            <CustomButton className="w-75" size="md" color="primary"> Começar! </CustomButton>
           </div>
           : undefined
         }
