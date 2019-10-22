@@ -10,6 +10,7 @@ import variables from "../assets/styles/scss/bootstrap/_variables.scss"
 import { Link } from 'react-router-dom'
 import { CustomButton } from "../components/inputs/CustomButton"
 import { Temperatura } from "../components/board/Temperatura"
+import { PlantCreateModal } from '../customComponents/modal/PlantCreateModal'
 
 
 export default class Home extends Component {
@@ -17,12 +18,17 @@ export default class Home extends Component {
     super(props);
     this.state = {
       plants: [],
-      isLoading: true
+      isLoading: true,
+      isModalOpen: false
     }
   }
 
   componentDidMount = async () => {
     this.refresh();
+  }
+
+  toggleModal = () => {
+    this.setState({ isModalOpen: !this.state.isModalOpen })
   }
 
   refresh = async () => {
@@ -85,34 +91,36 @@ export default class Home extends Component {
             {this.state.plants.length !== 0 ?
               <Col>
                 <CardStats style={{ height: "95%" }}>
-                  <Link to="/plantas-consultar">
+                  <div onClick={() => this.toggleModal()}>
                     <div style={{
                       cursor: "pointer",
                       transition: ".3s"
                     }}>
                       <UndrawAddFiles
-                        height="100"
+                        height="300px"
                         primaryColor={variables.primary} />
                     </div>
-                  </Link>
+                  </div>
                 </CardStats>
               </Col> : undefined
             }
           </Row>
         }
-        {this.state.plants.length === 0 && !isLoading ?
-          <div className="text-center mx-auto">
-            <br />
-            <h3>Parece que ainda não temos nada por aqui!</h3>
-            <br />
-            <Undraw height="500px" name="empty" primaryColor={variables.primary} />
-            <br />
-            <br />
-            <br />
-            <CustomButton className="w-75" size="md" color="primary"> Começar! </CustomButton>
-          </div>
-          : undefined
+        {
+          this.state.plants.length === 0 && !isLoading ?
+            <div className="text-center mx-auto">
+              <br />
+              <h3>Parece que ainda não temos nada por aqui!</h3>
+              <br />
+              <Undraw height="300px" name="empty" primaryColor={variables.primary} />
+              <br />
+              <br />
+              <br />
+              <CustomButton onClick={() => this.toggleModal()} className="w-75" size="md" color="primary"> Começar! </CustomButton>
+            </div>
+            : undefined
         }
+        <PlantCreateModal onSave={() => this.refresh()} isOpen={this.state.isModalOpen} toggle={() => this.toggleModal()} />
       </div>
     )
   }

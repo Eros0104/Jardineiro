@@ -16,10 +16,14 @@ export class PlantCreateModal extends Component {
         let model = await get('Seed/model');
         this.setState({ model, isLoading: false })
     }
-    insert() {
+    insert = async () => {
+        let { onSave } = this.props
+
         this.setState({ isLoading: true })
-        post('/Seed', this.state.model)
+        await post('/Seed', this.state.model)
         this.setState({ isLoading: false })
+        if (onSave)
+            onSave()
     }
     handleInput = (value, property) => {
         let { model } = this.state
