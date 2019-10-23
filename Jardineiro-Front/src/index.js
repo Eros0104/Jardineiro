@@ -7,8 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.css"
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import PlantasConsultar from "./pages/PlantasConsultar"
-import Home from "./pages/Home"
+import { PlantasConsultar, Home, TiposDePlantaConsultar } from "./pages"
 
 const routing = (
 	<Router>
@@ -16,6 +15,7 @@ const routing = (
 			<App>
 				<Route path="/" exact component={Home} />
 				<Route path="/plantas-consultar" component={PlantasConsultar} />
+				<Route path="/tipos-planta-consultar" component={TiposDePlantaConsultar} />
 			</App>
 		</Switch>
 	</Router>

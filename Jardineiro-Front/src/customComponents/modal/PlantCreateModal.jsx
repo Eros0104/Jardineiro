@@ -3,6 +3,7 @@ import { CustomCreateModal } from '../../components/modal/CustomCreateModal'
 import { get, post } from '../../functions/functions.jsx'
 import { Row, Col } from 'reactstrap'
 import { TextInput } from '../../components/inputs/TextInput'
+import { SelectGenero } from "../../customComponents/input/SelectGenero"
 
 export class PlantCreateModal extends Component {
     constructor(props) {
@@ -47,10 +48,10 @@ export class PlantCreateModal extends Component {
                             onChange={event => this.handleInput(event.target.value, 'nome')} />
                     </Col>
                     <Col>
-
+                        <SelectGenero onChange={event => this.handleInput(event.target.value, 'sexo')} />
                     </Col>
                 </Row>
-            </CustomCreateModal>
+            </CustomCreateModal >
         )
     }
 }

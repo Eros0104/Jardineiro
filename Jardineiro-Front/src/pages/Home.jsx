@@ -65,7 +65,7 @@ export default class Home extends Component {
                         {o.nome}
                       </Col>
                       <Col className="text-right">
-                        <CustomButton color="primary"><i className="fas fa-eye"></i></CustomButton>
+                        <CustomButton className="m-1" color="primary"><i className="fas fa-eye"></i></CustomButton>
                         <CustomButton color="danger" onClick={() => this.deletePlant(o.codigo)}>
                           <i className="fas fa-trash-alt"></i>
                         </CustomButton>
