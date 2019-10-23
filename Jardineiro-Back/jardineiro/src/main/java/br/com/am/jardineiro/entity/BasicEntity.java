@@ -1,8 +1,11 @@
 package br.com.am.jardineiro.entity;
 
 import br.com.am.jardineiro.table.Coluna;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @MappedSuperclass
 @SequenceGenerator(name="seed",sequenceName = "SEQ_SEED",allocationSize = 1)
@@ -10,13 +13,17 @@ public class BasicEntity {
     @Id
     @GeneratedValue(generator = "seed", strategy = GenerationType.SEQUENCE)
     @Coluna(name = "Cod.", sortable = true)
-    private long codigo;
+    @Column(name = "pk_id")
+    private long id;
 
-    public long getCodigo() {
-        return codigo;
+    @CreatedDate
+    private Date creationDate;
+
+    public long getId() {
+        return id;
     }
 
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
+    public void setId(long codigo) {
+        this.id = codigo;
     }
 }

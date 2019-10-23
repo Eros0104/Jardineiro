@@ -44,7 +44,7 @@ public class PlantaController {
 
     @PutMapping("{id}")
     public Seed atualizar(@RequestBody Seed seed, @PathVariable int id) {
-        seed.setCodigo(id);
+        seed.setId(id);
         return repository.save(seed);
     }
 

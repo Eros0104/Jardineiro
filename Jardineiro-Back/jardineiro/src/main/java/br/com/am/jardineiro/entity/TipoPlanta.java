@@ -8,5 +8,4 @@ import javax.persistence.Entity;
 public class TipoPlanta extends BasicEntity {
     @Coluna(name="Nome")
     private String Nome;
-    private Status StatusAdequados;
 }

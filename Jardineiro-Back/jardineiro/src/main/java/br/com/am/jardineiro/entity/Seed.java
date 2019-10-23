@@ -5,7 +5,7 @@ import br.com.am.jardineiro.table.Coluna;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name="t_seed")
 public class Seed extends BasicEntity{
     @Coluna(name = "Nome", sortable = true)
     private String nome;
@@ -13,6 +13,8 @@ public class Seed extends BasicEntity{
     @Coluna(name = "Sexo")
     private Genero sexo;
 
+    @ManyToOne
+    @JoinColumn(name = "id")
     private TipoPlanta tipoPlanta;
 
     public String getNome() { return nome; }
