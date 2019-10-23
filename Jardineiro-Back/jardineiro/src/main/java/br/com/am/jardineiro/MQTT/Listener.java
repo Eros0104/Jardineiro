@@ -8,20 +8,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 public class Listener implements IMqttMessageListener {
-
     public Listener(ClientMQTT clienteMQTT, String topico, int qos) {
         clienteMQTT.subscribe(qos, this, topico);
     }
-
+    @Autowired
+    private StatusService service;
     @Override
     public void messageArrived(String topico, MqttMessage mm) throws Exception {
         Status status = new ObjectMapper().readValue(new String(mm.getPayload()), Status.class);
-        System.out.println(status.getUmidade());
-        System.out.println(status.getTemperatura());
 
-
+        service.save(status);
 
         System.out.println("Mensagem recebida:");
         System.out.println("\tTópico: " + topico);

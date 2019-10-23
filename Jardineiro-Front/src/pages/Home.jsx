@@ -48,11 +48,7 @@ export default class Home extends Component {
       <div>
         {this.state.plants.length !== 0 && isLoading ?
           <div className="w-100 text-center">
-            <Loading size={150} />
-            <br />
-            <br />
-            <br />
-            <h2 style={{ color: variables.darkPrimary }}>Carregando...</h2>
+            <Loading size={15} />
           </div>
           :
           <Row>

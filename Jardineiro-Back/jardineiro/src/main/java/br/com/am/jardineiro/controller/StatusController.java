@@ -5,6 +5,7 @@ import br.com.am.jardineiro.repository.StatusRepository;
 import br.com.am.jardineiro.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,14 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("status")
 public class StatusController {
     @Autowired
-    private StatusRepository repository;
+    private StatusService service;
 
     @GetMapping("newest")
     public Status getMostRecent() {
-        return repository.findTopByOrderByIdDesc();
+        return service.findTopByOrderByIdDesc();
     }
 
+    @PostMapping
     public void save(Status status) {
-        repository.save(status);
+        service.save(status);
     }
 }

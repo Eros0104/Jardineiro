@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import {
-  RingLoader
+  RotateLoader
 } from 'react-spinners';
 import variables from "../../assets/styles/scss/bootstrap/_variables.scss"
 
 const override = {
   margin: "0 auto",
-  marginTop: "100px"
+  top: "50%",
+  position: "absolute"
 }
 
 export class Loading extends Component {
   render() {
     return (
-      <RingLoader
+      <RotateLoader
         sizeUnit={"px"}
         css={override}
         size={this.props.size}
