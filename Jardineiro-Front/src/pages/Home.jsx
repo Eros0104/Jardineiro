@@ -38,6 +38,7 @@ export default class Home extends Component {
   }
 
   deletePlant = async (id) => {
+    console.log(id)
     await remove("Seed/" + id)
     await this.refresh();
   }
@@ -62,7 +63,7 @@ export default class Home extends Component {
                       </Col>
                       <Col className="text-right">
                         <CustomButton className="m-1" color="primary"><i className="fas fa-eye"></i></CustomButton>
-                        <CustomButton color="danger" onClick={() => this.deletePlant(o.codigo)}>
+                        <CustomButton color="danger" onClick={() => this.deletePlant(o.id)}>
                           <i className="fas fa-trash-alt"></i>
                         </CustomButton>
                       </Col>

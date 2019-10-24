@@ -4,7 +4,6 @@ import br.com.am.jardineiro.table.Coluna;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @MappedSuperclass
@@ -14,16 +13,16 @@ public class BasicEntity {
     @GeneratedValue(generator = "seed", strategy = GenerationType.SEQUENCE)
     @Coluna(name = "Cod.", sortable = true)
     @Column(name = "pk_id")
-    private long id;
+    private int id;
 
     @CreatedDate
     private Date creationDate;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long codigo) {
+    public void setId(int codigo) {
         this.id = codigo;
     }
 }

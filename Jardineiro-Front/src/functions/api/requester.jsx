@@ -35,7 +35,7 @@ const put = async (uri, data) => {
 
 const remove = async (uri) => {
     let resp = axios.delete(baseUrl + uri)
-        .then(response => {
+        .then(response => {            
             success('Deletado com sucesso!')
         })
         .catch(resp => {
